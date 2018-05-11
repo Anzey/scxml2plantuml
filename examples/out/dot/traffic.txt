@@ -1,0 +1,37 @@
+@startuml
+[*] --> Intro
+state Intro {
+Intro --> PlayAds : success[sessionChrome.playAds]
+Intro --> ShouldGoBack : success[!sessionChrome.playAds && ANIQuality]
+Intro --> StartOver : success[!sessionChrome.playAds && !ANIQuality]
+}
+state PlayAds {
+PlayAds --> ShouldGoBack : success[ANIQuality]
+PlayAds --> StartOver : success[!ANIQuality]
+}
+state StartOver {
+StartOver --> ShouldGoBack : success
+StartOver --> StartOver : doOver
+StartOver --> Intro : restart
+}
+state ShouldGoBack {
+ShouldGoBack --> HighwayReport : highWay
+ShouldGoBack --> StartOver : go_back
+ShouldGoBack --> ShouldGoBack : doOver
+ShouldGoBack --> Intro : restart
+}
+state HighwayReport {
+HighwayReport --> PlayHighway : highway
+HighwayReport --> StartOver : go_back
+HighwayReport --> HighwayReport : doOver
+HighwayReport --> FullReport : fullreport
+HighwayReport --> Intro : restart
+}
+state FullReport {
+FullReport --> HighwayReport : go_back
+FullReport --> StartOver : new_city
+}
+state PlayHighway {
+PlayHighway --> HighwayReport : go_back
+}
+@enduml

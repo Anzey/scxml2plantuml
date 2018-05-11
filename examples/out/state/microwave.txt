@@ -1,0 +1,19 @@
+@startuml
+[*] --> off
+state off {
+off --> on : turn.on
+}
+state on {
+[*] --> idle
+on --> off : turn.off
+on --> off : [timer >= cook_time]
+state idle {
+idle --> cooking : [door_closed]
+idle --> cooking : door.close
+}
+state cooking {
+cooking --> idle : door.open
+cooking --> cooking : time
+}
+}
+@enduml

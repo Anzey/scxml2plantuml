@@ -1,0 +1,58 @@
+@startuml
+[*] --> Main
+state Main {
+[*] --> Test1
+state Test1 {
+[*] --> Test1Sub1
+state Test1Sub1 {
+Test1Sub1 --> Test1Sub2 : Event1
+}
+Test1Sub2 : <<final>>
+unnamed : <<final>>
+Test1 --> Test2 : Test1.done
+}
+state Test2 {
+[*] --> Test2Sub1
+state Test2Sub1 {
+Test2Sub1 --> Test2Sub2 : Event2
+}
+Test2Sub2 : <<final>>
+Test2 --> Test3 : done.state.Test2
+}
+state Test3 {
+[*] --> Test3Sub1
+state Test3Sub1 {
+Test3Sub1 --> Test4 : Timer
+}
+}
+state Test4 {
+[*] --> Test4Sub1
+state Test4Sub1 {
+Test4Sub1 --> Test5
+}
+}
+state Test5 {
+[*] --> Test5P
+state Test5P {
+state Test5PSub1 {
+[*] --> Test5PSub1Final
+Test5PSub1Final : <<final>>
+}
+||
+state Test5PSub2 {
+[*] --> Test5PSub2Final
+Test5PSub2Final : <<final>>
+}
+}
+Test5 --> Test6 : done.state.Test5P
+}
+state Test6 {
+Test6 --> Test6 : ccxml:connection.connected
+Test6 --> Test6 : v3:HelloWorld.done
+Test6 --> Test6 : v3:HelloWorld2.done
+Test6 --> Done : ccxml:connection.disconnected
+Test6 --> Done : send.failed
+}
+Done : <<final>>
+}
+@enduml

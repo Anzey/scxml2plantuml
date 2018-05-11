@@ -1,0 +1,36 @@
+@startuml
+[*] --> master
+state master {
+[*] --> _home
+master --> NewDealer : new_dealer
+master --> _home : mumble
+master --> _home : silence
+state _home {
+_home --> Welcome : success
+}
+state Welcome {
+Welcome --> Intro2 : success
+}
+state Intro2 {
+Intro2 --> EvalDeal : success
+}
+state EvalDeal {
+EvalDeal --> AskHit : success
+}
+state AskHit {
+AskHit --> PlayNewCard : hit
+AskHit --> PlayDone : stand
+}
+state PlayNewCard {
+PlayNewCard --> PlayDone : success[blackjack.GetTotalOf('caller') >= 21]
+PlayNewCard --> AskHit : success
+}
+state PlayDone {
+PlayDone --> Intro2 : playagain
+PlayDone --> _home : quit
+}
+state NewDealer {
+NewDealer --> Welcome : success
+}
+}
+@enduml

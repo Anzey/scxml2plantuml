@@ -1,0 +1,71 @@
+@startuml
+[*] --> on
+state wrapper {
+[*] --> on
+state on {
+[*] --> ready
+state ready {
+[*] --> begin
+state begin {
+begin --> negated1 : OPER.MINUS
+}
+state result {
+}
+ready --> opEntered : OPER
+ready --> zero1 : DIGIT.0
+ready --> int1 : DIGIT
+ready --> frac1 : POINT
+}
+state negated1 {
+negated1 --> zero1 : DIGIT.0
+negated1 --> int1 : DIGIT
+negated1 --> frac1 : POINT
+}
+state operand1 {
+state zero1 {
+zero1 --> int1 : DIGIT[_event.name != 'DIGIT.0']
+zero1 --> frac1 : POINT
+}
+state int1 {
+int1 --> frac1 : POINT
+int1 --> int1 : DIGIT
+}
+state frac1 {
+frac1 --> frac1 : DIGIT
+}
+operand1 --> opEntered : OPER
+}
+state opEntered {
+opEntered --> negated2 : OPER.MINUS
+opEntered --> frac2 : POINT
+opEntered --> zero2 : DIGIT.0
+opEntered --> int2 : DIGIT
+}
+state negated2 {
+negated2 --> zero2 : DIGIT.0
+negated2 --> int2 : DIGIT
+negated2 --> frac2 : POINT
+}
+state operand2 {
+state zero2 {
+zero2 --> int2 : DIGIT[_event.name != 'DIGIT.0']
+zero2 --> frac2 : POINT
+}
+state int2 {
+int2 --> int2 : DIGIT
+int2 --> frac2 : POINT
+}
+state frac2 {
+frac2 --> frac2 : DIGIT
+}
+operand2 --> opEntered : OPER
+operand2 --> result : EQUALS
+}
+on --> on : C
+}
+wrapper --> wrapper : CALC.DO
+wrapper --> wrapper : CALC.SUB
+wrapper --> wrapper : DISPLAY.UPDATE
+wrapper --> wrapper : OP.INSERT
+}
+@enduml

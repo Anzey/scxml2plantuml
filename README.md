@@ -3,7 +3,7 @@
 XSLT to transform scxml into PlantUML format.
 
 ## Description
-Presented solution allows for presentation of state charts described with SCXML (State Machine Notation - https://www.w3.org/TR/scxml/) using PlantUML (http://plantuml.com/state-diagram) via XSL Transformation (ver.1.1).
+Presented solution allows for presentation of state charts described with SCXML (State Machine Notation - https://www.w3.org/TR/scxml/) using PlantUML (http://plantuml.com/state-diagram) via XSL Transformation (ver.1.0).
 
 Note: current implementation is bare minimum that includes only states, transitions and conditions without actions, data model, executable content, ...
 

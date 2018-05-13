@@ -140,10 +140,10 @@
         <send event="DISPLAY.UPDATE" />
     </transition>
     <transition event="DISPLAY.UPDATE">
-        <log level="0" label="'result'" expr=".short_expr==''?res:short_expr" />
+        <log label="'result'" expr=".short_expr==''?res:short_expr" />
     </transition>
     <transition event="OP.INSERT">
-        <log level="0" expr="_event.data[0]" />
+        <log expr="_event.data[0]" />
         <if cond="_event.data[0] == 'OPER.PLUS'">
             <assign location="long_expr" expr="long_expr+'+'" />
         <elseif cond="_event.data[0]=='OPER.MINUS'" />

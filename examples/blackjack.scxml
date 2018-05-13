@@ -2,7 +2,7 @@
 <?access-control allow="*"?>
 <scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" datamodel="ecmascript" initial="master">
   <state id="master">
-    <initial id="init1">
+    <initial>
       <transition target="_home"/>
     </initial>
     <transition event="new_dealer" target="NewDealer"/>
@@ -80,9 +80,9 @@
     </state>
 
     <state id="PlayDone">
-      <onenter>
+      <onentry>
         <script>enterPlayDone();</script>
-      </onenter>
+      </onentry>
       <invoke src="dialog.vxml#PlayDone" type="vxml3">
         <param name="skinpath" expr="skinpath"/>
         <param name="gameresult" expr="blackjack.GetGameResult()"/>
@@ -93,9 +93,9 @@
     </state>
 
     <state id="NewDealer">
-      <onenter>
+      <onentry>
         <script>enterNewDealer();</script>
-      </onenter>
+      </onentry>
       <invoke src="dialog.vxml#Dummy" type="vxml3"/>
       <transition event="success" target="Welcome"/>
     </state>

@@ -2,7 +2,17 @@
 
 XSLT to transform scxml into PlantUML format.
 
+## Description
+Presented solution allows for presentation of state charts described with SCXML (State Machine Notation - https://www.w3.org/TR/scxml/) using PlantUML (http://plantuml.com/state-diagram) via XSL Transformation (ver.1.1).
+
+## Tools
+Required tools:
+- PlantUML tool - available @ http://plantuml.com/download
+- XLST processor - here used (and included) Xalan ver.2.7.2 (https://xalan.apache.org/) with included XML processor Xerces
+
 ## Examples
+Presented examples were extracted from SCXML description @ https://www.w3.org/TR/scxml/.
+
 - Main (dot final state)
 
 ![mainexample](examples/out/dot/Main.png?raw=true "Main state chart from https://www.w3.org/TR/scxml")

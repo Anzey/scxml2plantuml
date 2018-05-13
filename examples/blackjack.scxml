@@ -11,11 +11,11 @@
     <transition event="silence" target="_home"/>
     <!-- bail out to caller -->
     <state id="_home">
-      <onenter>
+      <onentry>
         <script>
           _data = {};
         </script>
-      </onenter>
+      </onentry>
       <invoke src="datamodel.v3#InitDataModel" type="vxml3">
         <finalize>
           <script>
@@ -44,9 +44,9 @@
     </state>
 
     <state id="EvalDeal">
-      <onenter>
+      <onentry>
         <script>enterEvalDeal();</script>
-      </onenter>
+      </onentry>
       <invoke src="dialog.vxml#EvalDeal" type="vxml3">
         <param name="skinpath" expr="skinpath"/>
         <param name="playercard1" expr="playercard1"/>

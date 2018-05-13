@@ -17,9 +17,9 @@
   </state>
 
   <state id="StartOver">
-    <onenter>
+    <onentry>
       <script>enterStartOver();</script>
-    </onenter>
+    </onentry>
     <invoke src="dialog.vxml#StartOver" type="vxml2">
       <param name="gotItFromANI" expr="gotItFromANI"/>
       <finalize>

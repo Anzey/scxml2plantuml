@@ -12,7 +12,7 @@ Note: current implementation is bare minimum that includes only states, transiti
 ## Tools
 Required tools:
 - PlantUML tool - available @ http://plantuml.com/download
-- XLST 1.0 processor - here used (and included) Xalan ver.2.7.2 (https://xalan.apache.org/) with included XML processor Xerces
+- XLST 1.0 processor - here used (and included) Xalan ver.2.7.2 (https://xalan.apache.org/)
 - XSD 1.1 processor (for validation) - used Xerces 1.12.0 with XSD 1.1 from http://xerces.apache.org/mirrors.cgi
 
 ## Examples
